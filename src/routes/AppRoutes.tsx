@@ -20,7 +20,7 @@ const AppRoutes = () => {
 
       {/* Dashboard Routes — logged-out users bounced to login */}
       {/* <Route element={<DashboardProtectedRoute />}> */}
-      <Route path="/dashboard" element={<DashboardLayout />}>
+      <Route path="/app" element={<DashboardLayout />}>
         <Route index element={<DashboardHome />} />
       </Route>
       {/* </Route> */}
