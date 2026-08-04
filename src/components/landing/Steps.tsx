@@ -25,7 +25,7 @@ const STEPS = [
   },
 ]
 
-function Steps() {
+const Steps = () => {
   return (
     <section id="how-it-works" className="mx-auto max-w-4xl px-6 py-24">
       <p className="text-center font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
