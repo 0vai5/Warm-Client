@@ -2,7 +2,7 @@ import SignupForm from "@/components/auth/SignupForm";
 import type { SignupInput } from "@/lib/validations/auth";
 
 const Signup = () => {
-  // TODO(connection day): wire to authStore + POST /auth/signup
+  // TODO: (connection day): wire to authStore + POST /auth/signup
   const handleSubmit = async (data: SignupInput) => {
     console.log("signup submit", data);
   };

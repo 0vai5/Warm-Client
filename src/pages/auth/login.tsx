@@ -2,7 +2,7 @@ import LoginForm from "@/components/auth/LoginForm"
 import type { LoginInput } from "@/lib/validations/auth"
 
 const Login = () => {
-  // TODO(connection day): wire to authStore + POST /auth/login
+  // TODO: (connection day): wire to authStore + POST /auth/login
   const handleSubmit = async (data: LoginInput) => {
     console.log("login submit", data)
   }
