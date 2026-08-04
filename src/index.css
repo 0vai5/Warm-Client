@@ -1,13 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-mono);
-    --font-mono: 'JetBrains Mono Variable', monospace;
+    --font-sans: 'Inter Variable', sans-serif;
+    --font-heading: 'Fraunces Variable', serif;
+    --font-mono: 'IBM Plex Mono', monospace;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,6 +43,9 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
+    /* Warm-specific: completed / low-priority state */
+    --color-teal: var(--teal);
+    --color-teal-foreground: var(--teal-foreground);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -48,73 +55,80 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Warm ships dark-native — this IS the product's only theme, not a toggle.
+   .dark below is kept as a no-op duplicate only in case a shadcn component
+   references the .dark selector directly. */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    --background: oklch(0.16 0.025 55);
+    --foreground: oklch(0.94 0.015 70);
+    --card: oklch(0.20 0.025 50);
+    --card-foreground: oklch(0.94 0.015 70);
+    --popover: oklch(0.20 0.025 50);
+    --popover-foreground: oklch(0.94 0.015 70);
+    --primary: oklch(0.76 0.15 65);
+    --primary-foreground: oklch(0.16 0.025 55);
+    --secondary: oklch(0.24 0.02 50);
+    --secondary-foreground: oklch(0.94 0.015 70);
+    --muted: oklch(0.22 0.02 50);
+    --muted-foreground: oklch(0.62 0.02 55);
+    --accent: oklch(0.26 0.025 55);
+    --accent-foreground: oklch(0.94 0.015 70);
+    --destructive: oklch(0.55 0.16 35);
+    --border: oklch(0.9 0.02 55 / 10%);
+    --input: oklch(0.9 0.02 55 / 12%);
+    --ring: oklch(0.76 0.15 65 / 50%);
+    --teal: oklch(0.55 0.06 175);
+    --teal-foreground: oklch(0.16 0.025 55);
+    --chart-1: oklch(0.76 0.15 65);
+    --chart-2: oklch(0.55 0.06 175);
+    --chart-3: oklch(0.55 0.16 35);
+    --chart-4: oklch(0.62 0.02 55);
+    --chart-5: oklch(0.85 0.08 65);
+    --radius: 0.375rem;
+    --sidebar: oklch(0.18 0.025 55);
+    --sidebar-foreground: oklch(0.94 0.015 70);
+    --sidebar-primary: oklch(0.76 0.15 65);
+    --sidebar-primary-foreground: oklch(0.16 0.025 55);
+    --sidebar-accent: oklch(0.24 0.02 50);
+    --sidebar-accent-foreground: oklch(0.94 0.015 70);
+    --sidebar-border: oklch(0.9 0.02 55 / 10%);
+    --sidebar-ring: oklch(0.76 0.15 65 / 50%);
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --background: oklch(0.16 0.025 55);
+    --foreground: oklch(0.94 0.015 70);
+    --card: oklch(0.20 0.025 50);
+    --card-foreground: oklch(0.94 0.015 70);
+    --popover: oklch(0.20 0.025 50);
+    --popover-foreground: oklch(0.94 0.015 70);
+    --primary: oklch(0.76 0.15 65);
+    --primary-foreground: oklch(0.16 0.025 55);
+    --secondary: oklch(0.24 0.02 50);
+    --secondary-foreground: oklch(0.94 0.015 70);
+    --muted: oklch(0.22 0.02 50);
+    --muted-foreground: oklch(0.62 0.02 55);
+    --accent: oklch(0.26 0.025 55);
+    --accent-foreground: oklch(0.94 0.015 70);
+    --destructive: oklch(0.55 0.16 35);
+    --border: oklch(0.9 0.02 55 / 10%);
+    --input: oklch(0.9 0.02 55 / 12%);
+    --ring: oklch(0.76 0.15 65 / 50%);
+    --teal: oklch(0.55 0.06 175);
+    --teal-foreground: oklch(0.16 0.025 55);
+    --chart-1: oklch(0.76 0.15 65);
+    --chart-2: oklch(0.55 0.06 175);
+    --chart-3: oklch(0.55 0.16 35);
+    --chart-4: oklch(0.62 0.02 55);
+    --chart-5: oklch(0.85 0.08 65);
+    --sidebar: oklch(0.18 0.025 55);
+    --sidebar-foreground: oklch(0.94 0.015 70);
+    --sidebar-primary: oklch(0.76 0.15 65);
+    --sidebar-primary-foreground: oklch(0.16 0.025 55);
+    --sidebar-accent: oklch(0.24 0.02 50);
+    --sidebar-accent-foreground: oklch(0.94 0.015 70);
+    --sidebar-border: oklch(0.9 0.02 55 / 10%);
+    --sidebar-ring: oklch(0.76 0.15 65 / 50%);
 }
 
 @layer base {
@@ -122,9 +136,17 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     }
-  html {
-    @apply font-mono;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
     }
+}
+
+@layer components {
+  /* Signature element (PRD 4.1): AI-generated tasks get a thin amber
+     left-border marker — this is Warm's one consistent visual "tell". */
+  .task-ai-marker {
+    border-left: 2px solid var(--color-primary);
+  }
 }
