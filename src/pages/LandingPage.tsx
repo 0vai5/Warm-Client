@@ -1,7 +1,10 @@
+import Hero from "@/components/landing/Hero";
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+     <div className="flex min-h-[calc(100vh-4rem)] flex-col">
+      <Hero />
+    </div>
   )
 }
 
