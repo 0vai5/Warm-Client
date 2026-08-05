@@ -1,0 +1,3 @@
+User dropdown on the Navbar should have a logout button that calls the logout function from the auth store. The logout function should clear the user data and redirect to the login page.
+
+Shadcn Chat Component for the Chat bubbles and chat interface. The chat component should be able to display messages from the user and the assistant, and allow the user to input new messages. The chat interface should be styled using Tailwind CSS and should be responsive for different screen sizes.
