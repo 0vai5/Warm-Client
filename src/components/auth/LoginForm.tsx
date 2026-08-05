@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Loader from "@/components/Loader";
 
 interface LoginFormProps {
   onSubmit: (data: LoginInput) => Promise<void> | void
@@ -61,12 +62,12 @@ const LoginForm = ({ onSubmit, isLoading, error }: LoginFormProps) => {
         disabled={isLoading}
         className={cn(buttonVariants({ size: "lg" }), "mt-1 w-full")}
       >
-        {isLoading ? "Signing in…" : "Sign in"}
+        {isLoading ? <Loader /> : "Sign in"}
       </button>
 
       <p className="text-center text-sm text-muted-foreground">
         Don't have an account?{" "}
-        <Link to="/signup" className="text-foreground underline underline-offset-4">
+        <Link to="/auth/signup" className="text-foreground underline underline-offset-4">
           Create one
         </Link>
       </p>

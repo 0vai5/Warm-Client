@@ -9,6 +9,8 @@ const NAV_LINKS = [
   { label: "Compare", href: "#compare" },
 ];
 
+// TODO: User Card in the Navbar when logged in, with a dropdown menu for profile and logout.
+
 function Navbar() {
   const [open, setOpen] = useState(false);
 

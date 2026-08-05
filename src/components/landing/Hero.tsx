@@ -70,12 +70,12 @@ const Hero = () => {
         <Link to="/signup" className={buttonVariants({ size: "lg" })}>
           Create account
         </Link>
-        <Link
-          to="#how-it-works"
+        <a
+          href="#how-it-works"
           className={buttonVariants({ variant: "outline", size: "lg" })}
         >
           See how it works
-        </Link>
+        </a>
       </div>
 
       {/* Product visual */}

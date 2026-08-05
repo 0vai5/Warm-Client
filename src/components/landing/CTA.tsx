@@ -12,7 +12,7 @@ const CTA = () => {
           Free while Warm is in early access. No card required to start.
         </p>
         <Link
-          to="/signup"
+          to="/auth/signup"
           className={buttonVariants({ size: "lg", className: "mt-8" })}
         >
           Create account
