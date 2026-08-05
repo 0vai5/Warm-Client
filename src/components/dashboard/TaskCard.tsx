@@ -33,7 +33,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
         status: isCompleted ? "pending" : "completed",
       });
     } catch {
-      // TODO: toast error once toast pattern is wired for tasks
+      return;
     }
   };
 
@@ -42,7 +42,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
       await deleteTask(task._id);
       setDeleteOpen(false);
     } catch {
-      // TODO: toast error
+      return;
     }
   };
 

@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import Cookies from "js-cookie";
 import { authService } from "@/services/auth.service";
+import { toast } from "@/components/ui/toast";
 import type { LoginPayload, SignupPayload, User } from "@/types/auth.types";
 
 const TOKEN_COOKIE = "warm_token";
@@ -37,9 +38,19 @@ export const useAuthStore = create<AuthState>((set) => ({
         secure: import.meta.env.PROD,
       });
       set({ user, isAuthenticated: true, isSubmitting: false });
+      toast.add({
+        title: "Signed in",
+        description: `Welcome back, ${user.name}.`,
+        type: "success",
+      });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Login failed";
       set({ isSubmitting: false, error: message });
+      toast.add({
+        title: "Login failed",
+        description: message,
+        type: "error",
+      });
       throw err;
     }
   },
@@ -49,9 +60,19 @@ export const useAuthStore = create<AuthState>((set) => ({
     try {
       await authService.signup(payload);
       set({ isSubmitting: false });
+      toast.add({
+        title: "Account created",
+        description: "You can sign in with your new account now.",
+        type: "success",
+      });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Signup failed";
       set({ isSubmitting: false, error: message });
+      toast.add({
+        title: "Signup failed",
+        description: message,
+        type: "error",
+      });
       throw err;
     }
   },
@@ -74,6 +95,11 @@ export const useAuthStore = create<AuthState>((set) => ({
       // token invalid/expired — clean slate
       Cookies.remove(TOKEN_COOKIE);
       set({ user: null, isAuthenticated: false, isHydrating: false });
+      toast.add({
+        title: "Session expired",
+        description: "Please sign in again.",
+        type: "warning",
+      });
     }
   },
 

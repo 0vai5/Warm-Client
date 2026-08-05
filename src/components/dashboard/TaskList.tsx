@@ -1,18 +1,18 @@
-import TaskCard from "./TaskCard"
-import type { Task } from "@/types/task.types"
+import TaskCard from "./TaskCard";
+import type { Task } from "@/types/task.types";
 
 interface TaskListProps {
-  tasks: Task[]
+  tasks: Task[];
 }
 
 const TaskList = ({ tasks }: TaskListProps) => {
   return (
-    <div className="overflow-hidden rounded-md border border-border bg-card">
+    <div className="scroll-fade no-scrollbar h-full min-h-0 overflow-y-auto rounded-md border border-border bg-card">
       {tasks.map((task) => (
         <TaskCard key={task._id} task={task} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default TaskList
+export default TaskList;
