@@ -1,11 +1,10 @@
-// src/services/auth.service.ts
 import api from "@/lib/axios";
 import type {
   LoginPayload,
   LoginResponse,
+  MeResponse,
   SignupPayload,
   SignupResponse,
-  MeResponse,
 } from "@/types/auth.types";
 
 interface APIResponse<T> {

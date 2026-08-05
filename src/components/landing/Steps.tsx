@@ -1,29 +1,24 @@
-// src/components/landing/Steps.tsx
-
 const STEPS = [
   {
     number: "01",
     title: "Say what's on your mind",
-    copy:
-      "No forms, no fields. Type your day the way you'd tell a colleague — mixed, unordered, half-finished thoughts included.",
+    copy: "No forms, no fields. Type your day the way you'd tell a colleague — mixed, unordered, half-finished thoughts included.",
     snippet:
       "call the electrician, finish the client deck, follow up with landlord",
   },
   {
     number: "02",
     title: "Warm structures it",
-    copy:
-      "Each item becomes a real task — title, priority, effort, category — inferred from what you actually said, not a generic template.",
+    copy: "Each item becomes a real task — title, priority, effort, category — inferred from what you actually said, not a generic template.",
     snippet: "→ 3 tasks created · 1 marked high priority",
   },
   {
     number: "03",
     title: "Vague references get resolved, not guessed",
-    copy:
-      "Say \"the call task\" later and Warm matches it by meaning. If more than one task is close, it asks — it never silently picks one.",
-    snippet: "\"the call task\" → Call the electrician (91% match)",
+    copy: 'Say "the call task" later and Warm matches it by meaning. If more than one task is close, it asks — it never silently picks one.',
+    snippet: '"the call task" → Call the electrician (91% match)',
   },
-]
+];
 
 const Steps = () => {
   return (
@@ -52,7 +47,7 @@ const Steps = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Steps
+export default Steps;
