@@ -3,7 +3,6 @@ import { useAuthStore } from "@/store/auth.store";
 import { useTaskStore } from "@/store/task.store";
 import TaskList from "@/components/dashboard/TaskList";
 import AddTaskForm from "@/components/dashboard/AddTaskForm";
-import ChatPane from "@/components/chat/ChatPane";
 
 const DashboardHome = () => {
   const user = useAuthStore((state) => state.user);
@@ -73,10 +72,7 @@ const DashboardHome = () => {
                     Loading chat…
                   </div>
                 }
-              >
-                {/* imported dynamically below to keep separation of concerns */}
-                <ChatPane />
-              </React.Suspense>
+              ></React.Suspense>
             </div>
           </div>
         </aside>
