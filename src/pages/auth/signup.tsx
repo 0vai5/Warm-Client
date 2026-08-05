@@ -1,11 +1,24 @@
-import SignupForm from "@/components/auth/SignupForm";
-import type { SignupInput } from "@/lib/validations/auth";
+import { useNavigate } from "react-router-dom"
+import SignupForm from "@/components/auth/SignupForm"
+import { useAuthStore } from "@/store/auth.store"
+import type { SignupInput } from "@/lib/validations/auth"
 
 const Signup = () => {
-  // TODO: (connection day): wire to authStore + POST /auth/signup
+  const navigate = useNavigate()
+  const { signup, isSubmitting, error, clearError } = useAuthStore()
+
   const handleSubmit = async (data: SignupInput) => {
-    console.log("signup submit", data);
-  };
+    try {
+      clearError()
+      await signup(data)
+      navigate("/auth/login", {
+        state: { justSignedUp: true },
+        replace: true,
+      })
+    } catch {
+      // error already captured in store
+    }
+  }
 
   return (
     <div>
@@ -15,10 +28,14 @@ const Signup = () => {
       </p>
 
       <div className="mt-8">
-        <SignupForm onSubmit={handleSubmit} />
+        <SignupForm
+          onSubmit={handleSubmit}
+          isLoading={isSubmitting}
+          error={error}
+        />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
