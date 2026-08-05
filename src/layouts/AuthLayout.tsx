@@ -1,5 +1,4 @@
-// src/layouts/AuthLayout.tsx
-import { Outlet, Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom";
 
 const AuthLayout = () => {
   return (
@@ -37,7 +36,7 @@ const AuthLayout = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuthLayout
+export default AuthLayout;

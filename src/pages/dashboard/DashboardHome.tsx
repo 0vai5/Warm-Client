@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useAuthStore } from "@/store/auth.store"
 import { useTaskStore } from "@/store/task.store"
 import TaskList from "@/components/dashboard/TaskList"
+import AddTaskForm from "@/components/dashboard/AddTaskForm";
 
 const DashboardHome = () => {
   const user = useAuthStore((state) => state.user)
@@ -28,6 +29,11 @@ const DashboardHome = () => {
               {tasks.length} task{tasks.length !== 1 ? "s" : ""}
             </p>
           </div>
+
+    <div className="mb-4">
+
+          <AddTaskForm />
+    </div>
 
           {isLoading && (
             <p className="font-mono text-xs text-muted-foreground">
