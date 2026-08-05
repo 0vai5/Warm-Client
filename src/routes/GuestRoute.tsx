@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useAuthStore } from "@/store/auth.store"
+import Loader from "@/components/Loader";
 
 const GuestRoute = () => {
   const { isAuthenticated, isHydrating } = useAuthStore()
@@ -8,9 +9,7 @@ const GuestRoute = () => {
     // still checking cookie — wait before deciding, same reason as ProtectedRoute
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
-          Loading…
-        </p>
+       <Loader />
       </div>
     )
   }

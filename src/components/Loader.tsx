@@ -1,9 +1,14 @@
 import { SpinnerIcon } from "@phosphor-icons/react";
 
-const Loader = () => {
+type LoaderProps = {
+  label?: string;
+};
+
+const Loader = ({ label = "Loading…" }: LoaderProps) => {
   return (
-    <div>
-      <SpinnerIcon size={32} className="h-5 w-5 animate-spin" />
+    <div role="status" aria-live="polite" className="inline-flex items-center">
+      <SpinnerIcon aria-hidden="true" className="h-5 w-5 animate-spin" />
+      <span className="sr-only">{label}</span>
     </div>
   );
 };

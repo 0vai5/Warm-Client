@@ -1,4 +1,3 @@
-// src/stores/auth.store.ts
 import { create } from "zustand";
 import Cookies from "js-cookie";
 import { authService } from "@/services/auth.service";
@@ -32,7 +31,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({ isSubmitting: true, error: null });
     try {
       const { user, token } = await authService.login(payload);
-      Cookies.set(TOKEN_COOKIE, token, { expires: COOKIE_EXPIRES_DAYS });
+      Cookies.set(TOKEN_COOKIE, token, {
+        expires: COOKIE_EXPIRES_DAYS,
+        sameSite: "strict",
+        secure: import.meta.env.PROD,
+      });
       set({ user, isAuthenticated: true, isSubmitting: false });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Login failed";

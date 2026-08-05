@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import Loader from "../Loader";
+import Loader from "@/components/Loader";
 
 interface LoginFormProps {
   onSubmit: (data: LoginInput) => Promise<void> | void

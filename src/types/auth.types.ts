@@ -1,10 +1,10 @@
-type userRole = "user" | "admin";
+export type UserRole = "user" | "admin";
 
 export interface User {
   id: string;
   name: string;
   email: string;
-  role: userRole;
+  role: UserRole;
 }
 
 export interface LoginPayload {
