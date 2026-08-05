@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAuthStore } from "@/store/auth.store";
 import { useTaskStore } from "@/store/task.store";
 import TaskList from "@/components/dashboard/TaskList";
 import AddTaskForm from "@/components/dashboard/AddTaskForm";
+import ChatPane from "@/components/chat/ChatPane";
 
 const DashboardHome = () => {
   const user = useAuthStore((state) => state.user);
@@ -58,9 +59,26 @@ const DashboardHome = () => {
         </main>
 
         <aside className="w-full shrink-0 p-4 sm:p-6 md:w-95">
-          <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
-            Chat
-          </p>
+          <div className="h-full">
+            <div className="mb-3 flex items-center justify-between">
+              <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                Chat
+              </p>
+            </div>
+            <div className="flex h-[80vh] flex-col">
+              {/* Chat pane component */}
+              <React.Suspense
+                fallback={
+                  <div className="text-sm text-muted-foreground">
+                    Loading chat…
+                  </div>
+                }
+              >
+                {/* imported dynamically below to keep separation of concerns */}
+                <ChatPane />
+              </React.Suspense>
+            </div>
+          </div>
         </aside>
       </div>
     </div>
