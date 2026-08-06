@@ -5,6 +5,7 @@ import UserMenu from "@/components/UserMenu";
 import { List, X } from "@phosphor-icons/react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
@@ -19,11 +20,8 @@ function Navbar() {
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-          <Link
-            to="/"
-            className="font-heading text-lg lowercase tracking-tight"
-          >
-            warm
+          <Link to="/" className="flex items-center">
+            <Logo />
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">

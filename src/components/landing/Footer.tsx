@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Logo from "../Logo";
 
-const YEAR = new Date().getFullYear()
+const YEAR = new Date().getFullYear();
 
 const Footer = () => {
   return (
@@ -8,8 +9,11 @@ const Footer = () => {
       <div className="mx-auto max-w-5xl px-6 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <Link to="/" className="font-heading text-lg lowercase tracking-tight">
-              warm
+            <Link
+              to="/"
+              className="font-heading text-lg lowercase tracking-tight"
+            >
+              <Logo />
             </Link>
             <p className="mt-2 max-w-xs text-sm text-muted-foreground">
               A quiet control room for your day.
@@ -21,10 +25,16 @@ const Footer = () => {
               <p className="font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
                 Product
               </p>
-              <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground">
+              <a
+                href="#how-it-works"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 How it works
               </a>
-              <a href="#compare" className="text-sm text-muted-foreground hover:text-foreground">
+              <a
+                href="#compare"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Compare
               </a>
             </div>
@@ -52,7 +62,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

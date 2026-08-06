@@ -2,7 +2,6 @@ import AddTaskForm from "@/components/dashboard/AddTaskForm";
 import ChatPane from "@/components/dashboard/ChatPane";
 import TaskList from "@/components/dashboard/TaskList";
 import UndoHistory from "@/components/dashboard/UndoHistory";
-import UserMenu from "@/components/UserMenu";
 import { useTaskStore } from "@/store/task.store";
 import { useEffect } from "react";
 
@@ -15,11 +14,6 @@ const DashboardHome = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background md:h-screen">
-      <header className="flex items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-6">
-        <p className="font-heading text-lg lowercase tracking-tight">warm</p>
-        <UserMenu />
-      </header>
-
       <div className="flex flex-1 flex-col md:flex-row md:overflow-hidden">
         <main className="flex flex-col gap-4 scrollbar-none border-b border-border p-4 sm:p-6 md:flex-1 md:min-h-0 md:overflow-y-auto scroll-fade md:border-b-0 md:border-r">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">

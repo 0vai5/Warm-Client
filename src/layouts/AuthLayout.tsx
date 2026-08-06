@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import { Link, Outlet } from "react-router-dom";
 
 const AuthLayout = () => {
@@ -5,8 +6,8 @@ const AuthLayout = () => {
     <div className="grid min-h-svh md:grid-cols-2">
       {/* Brand panel — hidden on mobile, shown on md+ */}
       <div className="relative hidden flex-col justify-between border-r border-border bg-card p-10 md:flex">
-        <Link to="/" className="font-heading text-lg lowercase tracking-tight">
-          warm
+        <Link to="/" className="mb-10 flex items-center md:mb-0">
+          <Logo />
         </Link>
 
         <div className="max-w-sm">
@@ -30,7 +31,7 @@ const AuthLayout = () => {
             to="/"
             className="font-heading mb-10 block text-lg lowercase tracking-tight md:hidden"
           >
-            warm
+            <Logo />
           </Link>
           <Outlet />
         </div>
