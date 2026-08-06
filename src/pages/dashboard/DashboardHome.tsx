@@ -5,6 +5,7 @@ import { useTaskStore } from "@/store/task.store"
 import TaskList from "@/components/dashboard/TaskList"
 import AddTaskForm from "@/components/dashboard/AddTaskForm"
 import ChatPane from "@/components/dashboard/ChatPane"
+import UndoHistory from "@/components/dashboard/UndoHistory";
 
 const DashboardHome = () => {
   const user = useAuthStore((state) => state.user)
@@ -59,6 +60,7 @@ const DashboardHome = () => {
           <p className="mb-3 font-mono text-xs uppercase tracking-wide text-muted-foreground">
             Chat
           </p>
+          <UndoHistory />
           <ChatPane />
         </aside>
       </div>
