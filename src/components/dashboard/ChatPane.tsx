@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { useChatStore } from "@/store/chat.store";
-import ChatBubble from "./ChatBubble";
-import { Input } from "@/components/ui/input";
 import { buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { useChatStore } from "@/store/chat.store";
+import { ArrowUpIcon } from "@phosphor-icons/react";
+import { useEffect, useRef, useState } from "react";
+import ChatBubble from "./ChatBubble";
 
 const ChatPane = () => {
   const { messages, isSending, error, sendMessage } = useChatStore();
@@ -64,7 +65,7 @@ const ChatPane = () => {
           disabled={isSending || !input.trim()}
           className={cn(buttonVariants({ size: "sm" }))}
         >
-          Send
+          <ArrowUpIcon size={16} />
         </button>
       </form>
     </div>

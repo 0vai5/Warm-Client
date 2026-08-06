@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { chatService } from "@/services/chat.service";
 import { useTaskStore } from "@/store/task.store";
+import { useUndoStore } from "@/store/undo.store";
 import type { ChatMessage } from "@/types/chat.types";
 
 interface ChatState {
@@ -51,6 +52,7 @@ export const useChatStore = create<ChatState>((set) => ({
       // the user sees it without a manual reload (PRD: "AI never acts silently")
       if (result.functionCalled) {
         useTaskStore.getState().fetchTasks();
+        useUndoStore.getState().fetchHistory();
       }
     } catch (err) {
       const message =
