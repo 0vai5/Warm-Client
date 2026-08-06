@@ -1,3 +1,11 @@
 User dropdown on the Navbar should have a logout button that calls the logout function from the auth store. The logout function should clear the user data and redirect to the login page.
 
 Shadcn Chat Component for the Chat bubbles and chat interface. The chat component should be able to display messages from the user and the assistant, and allow the user to input new messages. The chat interface should be styled using Tailwind CSS and should be responsive for different screen sizes.
+
+Fix that all the completed are sorted at the end from Backend and the pending tasks are sorted at the top. The sorting should be done based on the task status and the task creation date. The completed tasks should be displayed in a separate section below the pending tasks.
+
+Fix Due date as it is adding for tomorrow instead of today. The due date should be set to the current date when a new task is created, and it should be displayed in the task list with the correct format.
+
+Chat response mein markdown k soorat mein bhi arha hai to markdown bhi enable krni hai, in order to fix the response
+
+Completed tasks ko bhi dekh rha hai priority ko test krne k 
