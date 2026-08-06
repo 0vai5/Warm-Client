@@ -21,7 +21,7 @@ const DashboardHome = () => {
       </header>
 
       <div className="flex flex-1 flex-col md:flex-row md:overflow-hidden">
-        <main className="flex flex-col gap-4 border-b border-border p-4 sm:p-6 md:flex-1 md:min-h-0 md:overflow-y-auto md:border-b-0 md:border-r">
+        <main className="flex flex-col gap-4 scrollbar-none border-b border-border p-4 sm:p-6 md:flex-1 md:min-h-0 md:overflow-y-auto scroll-fade md:border-b-0 md:border-r">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <h1 className="font-heading text-xl">Today</h1>
             <p className="font-mono text-xs whitespace-nowrap text-muted-foreground">
