@@ -1,27 +1,23 @@
-// src/pages/dashboard/DashboardHome.tsx
-import { useEffect } from "react"
-import { useAuthStore } from "@/store/auth.store"
-import { useTaskStore } from "@/store/task.store"
-import TaskList from "@/components/dashboard/TaskList"
-import AddTaskForm from "@/components/dashboard/AddTaskForm"
-import ChatPane from "@/components/dashboard/ChatPane"
+import AddTaskForm from "@/components/dashboard/AddTaskForm";
+import ChatPane from "@/components/dashboard/ChatPane";
+import TaskList from "@/components/dashboard/TaskList";
 import UndoHistory from "@/components/dashboard/UndoHistory";
+import UserMenu from "@/components/UserMenu";
+import { useTaskStore } from "@/store/task.store";
+import { useEffect } from "react";
 
 const DashboardHome = () => {
-  const user = useAuthStore((state) => state.user)
-  const { tasks, isLoading, error, fetchTasks } = useTaskStore()
+  const { tasks, isLoading, error, fetchTasks } = useTaskStore();
 
   useEffect(() => {
-    fetchTasks()
-  }, [fetchTasks])
+    fetchTasks();
+  }, [fetchTasks]);
 
   return (
     <div className="flex min-h-screen flex-col bg-background md:h-screen">
       <header className="flex items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-6">
         <p className="font-heading text-lg lowercase tracking-tight">warm</p>
-        <p className="truncate font-mono text-xs text-muted-foreground">
-          {user?.name}
-        </p>
+        <UserMenu />
       </header>
 
       <div className="flex flex-1 flex-col md:flex-row md:overflow-hidden">
@@ -65,7 +61,7 @@ const DashboardHome = () => {
         </aside>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardHome
+export default DashboardHome;
