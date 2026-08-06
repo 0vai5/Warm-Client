@@ -1,5 +1,7 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useAuthStore } from "@/store/auth.store";
+import UserMenu from "@/components/UserMenu";
 import { List, X } from "@phosphor-icons/react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -9,10 +11,9 @@ const NAV_LINKS = [
   { label: "Compare", href: "#compare" },
 ];
 
-// TODO: User Card in the Navbar when logged in, with a dropdown menu for profile and logout.
-
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const { isAuthenticated } = useAuthStore();
 
   return (
     <>
@@ -38,15 +39,24 @@ function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
-            <Link
-              to="/auth/login"
-              className={buttonVariants({ variant: "ghost", size: "sm" })}
-            >
-              Sign in
-            </Link>
-            <Link to="/auth/signup" className={buttonVariants({ size: "sm" })}>
-              Get started
-            </Link>
+            {isAuthenticated ? (
+              <UserMenu />
+            ) : (
+              <>
+                <Link
+                  to="/auth/login"
+                  className={buttonVariants({ variant: "ghost", size: "sm" })}
+                >
+                  Sign in
+                </Link>
+                <Link
+                  to="/auth/signup"
+                  className={buttonVariants({ size: "sm" })}
+                >
+                  Get started
+                </Link>
+              </>
+            )}
           </div>
 
           <Button
@@ -79,20 +89,28 @@ function Navbar() {
                 </NavLink>
               ))}
               <div className="mt-3 flex flex-col gap-2 border-t border-border pt-4">
-                <Link
-                  to="/login"
-                  onClick={() => setOpen(false)}
-                  className={buttonVariants({ variant: "outline" })}
-                >
-                  Sign in
-                </Link>
-                <Link
-                  to="/signup"
-                  onClick={() => setOpen(false)}
-                  className={buttonVariants()}
-                >
-                  Get started
-                </Link>
+                {isAuthenticated ? (
+                  <div onClick={() => setOpen(false)}>
+                    <UserMenu />
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      to="/auth/login"
+                      onClick={() => setOpen(false)}
+                      className={buttonVariants({ variant: "outline" })}
+                    >
+                      Sign in
+                    </Link>
+                    <Link
+                      to="/auth/signup"
+                      onClick={() => setOpen(false)}
+                      className={buttonVariants()}
+                    >
+                      Get started
+                    </Link>
+                  </>
+                )}
               </div>
             </nav>
           </div>
