@@ -53,10 +53,12 @@ const DashboardHome = () => {
         </main>
 
         <aside className="flex w-full shrink-0 flex-col p-4 sm:p-6 md:w-95 md:min-h-0">
-          <p className="mb-3 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-            Chat
-          </p>
-          <UndoHistory />
+          <div className="flex justify-between text-center">
+            <p className="mb-3 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+              Chat
+            </p>
+            <UndoHistory />
+          </div>
           <ChatPane />
         </aside>
       </div>

@@ -1,4 +1,3 @@
-// src/components/dashboard/UndoHistory.tsx
 import {
     Popover,
     PopoverContent,
@@ -29,7 +28,7 @@ const UndoHistory = () => {
     <Popover>
       <PopoverTrigger
         className={cn(
-          "flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground",
+          "flex items-center mb-4 gap-1.5 font-mono text-[11px] uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground",
         )}
       >
         <ClockCounterClockwiseIcon size={13} />
